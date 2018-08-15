@@ -1,0 +1,11 @@
+spring:
+  security:
+    user:
+      name: user
+      password: user
+  jmx:
+    enabled: false
+
+logging:
+  level.demo.api: TRACE
+

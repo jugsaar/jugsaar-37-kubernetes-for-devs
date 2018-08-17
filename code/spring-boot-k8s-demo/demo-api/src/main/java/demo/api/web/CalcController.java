@@ -12,12 +12,11 @@ import java.net.InetAddress;
 import java.util.Map;
 import java.util.function.BiFunction;
 
-@RestController
 @Slf4j
-@RequestMapping("/api/calc")
+@RestController
 class CalcController {
 
-    @GetMapping
+    @GetMapping("/api/calc")
     public Object calc(BigDecimal x, BigDecimal y, @RequestParam(defaultValue = "PLUS") Operator op) throws Exception {
         return Map.of( //
                 "result", op.apply(x, y).toPlainString(), //

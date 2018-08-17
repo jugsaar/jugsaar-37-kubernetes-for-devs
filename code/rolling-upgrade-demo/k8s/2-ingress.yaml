@@ -1,17 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: demo-api-ingress
+  name: rolling-app-ingress
   annotations:
     ingress.kubernetes.io/rewrite-target: /
   namespace: default
 spec:
   rules:
-  - host: demo-api.demo.tdlabs.k8s
+  - host: rolling-app.demo.tdlabs.k8s
     http:
       paths:
       - backend:
-          serviceName: demo-api-service
+          serviceName: rolling-app-service
           servicePort: 8080
         path: /
-

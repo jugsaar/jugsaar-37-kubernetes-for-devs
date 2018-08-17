@@ -1,0 +1,11 @@
+management:
+  add-application-context-header: false
+  security:
+    enabled: true
+
+security:
+  user:
+    name: actuator
+    password: actuator
+    role:
+    - actuator

@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rolling-app-service
+  namespace: default
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+    name: http
+  selector:
+    app: rolling-app
+  type: NodePort
+#---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: demo-api-service # Service name
+#spec:
+#  type: LoadBalancer
+#  selector:
+#    run: demo-api # Label selector. The Service targets Pods that use this label
+#  ports:
+#  - port: 8080 # Port used to access the Service from within the cluster.
+#    targetPort: 8080 # Port opened by targeted Pods

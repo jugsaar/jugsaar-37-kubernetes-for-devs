@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rolling Upgrade Demo</title>
+
+    <style>
+
+        body {
+            background: lime;
+        }
+
+        h1 {
+            font-size: xx-large;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Version: <span th:text="${build.version}">1.0</span></h1>
+<h1>Commit: <span th:text="${git.shortCommitId}">abcdef</span></h1>
+<h1>Pod IP: <span th:text="${podIp}">127.0.0.1</span></h1>
+</body>
+</html>

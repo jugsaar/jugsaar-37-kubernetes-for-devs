@@ -1,0 +1,7 @@
+build push deploy:
+
+mvn clean verify fabric8:resource fabric8:build fabric8:push fabric8:deploy -DskipTests
+
+scale:
+mvn fabric8:start  -Dfabric8.replicas=3
+

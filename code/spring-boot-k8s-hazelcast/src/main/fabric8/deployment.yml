@@ -1,0 +1,31 @@
+spec:
+ template:
+   spec:
+     replicas: 3
+   containers:
+    - env:
+       - name: KUBERNETES_NAMESPACE
+         valueFrom:
+           fieldRef:
+             fieldPath: metadata.namespace
+       - name: JAVA_OPTIONS
+         value: "-Ddemo.cluster.name=demo -Ddemo.cluster.password=demo"
+    - name: spring-boot
+      ports:
+      - containerPort: 8080
+        name: http
+        protocol: TCP
+      - containerPort: 9779
+        name: prometheus
+        protocol: TCP
+      - containerPort: 8778
+        name: jolokia
+        protocol: TCP
+      readinessProbe:
+        httpGet:
+          path: /health
+          port: 8080
+          scheme: HTTP
+        initialDelaySeconds: 10
+      securityContext:
+        privileged: false

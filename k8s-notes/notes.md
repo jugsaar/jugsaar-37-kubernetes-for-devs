@@ -103,3 +103,11 @@ $ for i in {1..5}; do curl http://actuator:actuator@hazelcast.demo.tdlabs.k8s &&
 {"node":"10.44.0.4"}
 {"node":"10.47.0.3"}
 {"node":"10.40.0.5"}
+
+
+----
+
+curl demo-api.demo.tdlabs.k8s/api/calc\?x=2\&\y=3
+
+curl demo-app.demo.tdlabs.k8s/calc\?x=2\&\y=3
+curl demo-app.demo.tdlabs.k8s/services

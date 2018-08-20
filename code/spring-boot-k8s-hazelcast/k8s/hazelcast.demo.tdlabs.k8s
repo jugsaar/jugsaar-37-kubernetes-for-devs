@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: demo-service-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: hazelcast.demo.tdlabs.k8s
+    http:
+      paths:
+      - backend:
+          serviceName: demo-service-hazelcast
+          servicePort: 8080
+        path: /

@@ -1,4 +1,4 @@
-package demo.app.gateway;
+package demo.app;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-class GatewayController {
+class AppController {
 
     private final CalcApi calcApi;
 
@@ -23,8 +23,11 @@ class GatewayController {
     }
 
     @GetMapping("/calc")
-    public CalcApi.CalcResult calc(@RequestParam BigDecimal x, @RequestParam BigDecimal y, @RequestParam(defaultValue = "PLUS") String op) {
+    public CalcApi.CalcResult calc(BigDecimal x, BigDecimal y, @RequestParam(defaultValue = "PLUS") String op) {
+
+        // call calcApi from demo-api-service
         CalcApi.CalcResult result = calcApi.calc(x, y, op);
+
         return result;
     }
 }

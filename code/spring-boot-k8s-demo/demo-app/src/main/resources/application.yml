@@ -1,5 +1,0 @@
-spring:
-  feign:
-    client:
-      config:
-        calc:

@@ -15,6 +15,7 @@ spec:
       containers:
       - name: demo-api
         image: gitlab:5000/k8s-demo-api:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
           name: server
@@ -24,17 +25,9 @@ spec:
             path: /actuator/health
             scheme: HTTP
           initialDelaySeconds: 10
-          periodSeconds: 5
-          timeoutSeconds: 5
-          successThreshold: 1
-          failureThreshold: 10
         livenessProbe:
           httpGet:
             port: 8080
             path: /actuator/health
             scheme: HTTP
           initialDelaySeconds: 10
-          periodSeconds: 20
-          timeoutSeconds: 10
-          successThreshold: 1
-          failureThreshold: 3

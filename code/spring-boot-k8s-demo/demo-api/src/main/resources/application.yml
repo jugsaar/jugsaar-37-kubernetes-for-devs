@@ -1,8 +1,4 @@
 spring:
-  security:
-    user:
-      name: user
-      password: user
   jmx:
     enabled: false
 

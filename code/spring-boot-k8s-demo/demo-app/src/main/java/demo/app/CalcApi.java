@@ -1,4 +1,4 @@
-package demo.app.gateway;
+package demo.app;
 
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import lombok.Data;
@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-@FeignClient(name = "demo-api-service")
+@FeignClient(name = "demo-api-service") // K8S service name of the demo-api serice
 public interface CalcApi {
 
     @GetMapping("/api/calc")
@@ -18,10 +18,12 @@ public interface CalcApi {
 
     @Data
     class CalcResult {
+
         String result;
 
         Map<String, Object> properties = new HashMap<>();
 
+        // collect any unknown JSON properties we receive
         @JsonAnySetter
         public void setProperty(String name, Object value) {
             this.properties.put(name, value);

@@ -20,12 +20,12 @@ class DemoController {
     private final HttpSession session;
 
     @GetMapping
-    Object getData() {
+    public Object getData() {
         return toResponse(loadDataInternal());
     }
 
     @GetMapping("{key}/{value}")
-    Object putData(@PathVariable String key, @PathVariable String value) {
+    public Object putData(@PathVariable String key, @PathVariable String value) {
 
         Map<String, String> data = loadDataInternal();
 
@@ -36,7 +36,7 @@ class DemoController {
     }
 
     @GetMapping(path = "{key}", params = "remove")
-    Object removeData(@PathVariable String key) {
+    public Object removeData(@PathVariable String key) {
 
         Map<String, String> data = loadDataInternal();
 

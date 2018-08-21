@@ -1,5 +1,6 @@
 package demo;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.boot.info.GitProperties;
 import org.springframework.stereotype.Controller;
@@ -9,15 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.net.InetAddress;
 
 @Controller
+@RequiredArgsConstructor
 class AppController {
 
     private final BuildProperties buildProperties;
     private final GitProperties gitProperties;
-
-    public AppController(BuildProperties buildProperties, GitProperties gitProperties) {
-        this.buildProperties = buildProperties;
-        this.gitProperties = gitProperties;
-    }
 
     @GetMapping("/")
     String index(Model model) throws Exception {

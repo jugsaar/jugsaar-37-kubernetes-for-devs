@@ -5,3 +5,9 @@ mvn clean verify fabric8:resource fabric8:build fabric8:push fabric8:deploy -Dsk
 scale:
 mvn fabric8:start  -Dfabric8.replicas=3
 
+cleanup:
+
+kubectl delete ingress demo-service-ingress
+kubectl delete svc demo-service-hazelcast
+kubectl delete deploy spring-boot-hazelcast-demo 
+

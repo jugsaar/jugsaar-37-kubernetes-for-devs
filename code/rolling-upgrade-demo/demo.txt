@@ -1,0 +1,12 @@
+# deploy
+./deploy
+
+# cleanup
+
+kubectl delete ingress rolling-app-ingress
+kubectl delete service rolling-app-service
+kubectl delete deploy rolling-app-deployment
+
+# manual upgrade
+kubectl set image deployment/rolling-app-deployment rolling-app=gitlab:5000/k8s-rolling-app:1.0.10-SNAPSHOT
+

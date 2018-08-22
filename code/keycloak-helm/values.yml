@@ -1,9 +1,9 @@
 keycloak:
-  password: keycloak
+#  password: keycloak
   replicas: 3
   persistence:
 
-    # Disable deployment of the PostgreSQL chart
+    # Enable deployment of the PostgreSQL chart
     deployPostgres: true
 
     # The database vendor. Can be either "postgres", "mysql", "mariadb", or "h2"

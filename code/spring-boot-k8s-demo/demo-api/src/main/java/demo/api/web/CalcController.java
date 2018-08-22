@@ -15,6 +15,19 @@ import java.util.function.BiFunction;
 @RestController
 class CalcController {
 
+    /**
+     * <pre>
+     * {@code
+     * curl -s http://localhost:8080/api/calc\?x\=10\&y\=9 | jq .
+     * }
+     * </pre>
+     *
+     * @param x
+     * @param y
+     * @param op
+     * @return
+     * @throws Exception
+     */
     @GetMapping("/api/calc")
     public Object calc(BigDecimal x, BigDecimal y, @RequestParam(defaultValue = "PLUS") Operator op) throws Exception {
 

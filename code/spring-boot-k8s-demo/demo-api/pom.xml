@@ -88,12 +88,15 @@
                     <verbose>${docker-debug}</verbose>
                     <images>
                         <image>
+                            <!--we prefix the image with our local registry -->
                             <name>gitlab:5000/k8s-demo-api</name>
                             <build>
                                 <tags>
                                     <tag>${project.version}</tag>
                                     <tag>${git.commit.id}</tag>
                                 </tags>
+
+                                <!-- we use a custom docker file -->
                                 <dockerFileDir>${project.basedir}/src/main/docker</dockerFileDir>
                                 <assembly>
                                     <inline>

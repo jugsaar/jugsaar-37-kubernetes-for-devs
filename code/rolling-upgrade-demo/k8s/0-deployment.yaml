@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: rolling-app
-        image: gitlab:5000/k8s-rolling-app:1.0.12-SNAPSHOT
+        image: gitlab:5000/k8s-rolling-app:1.0.14-SNAPSHOT
         ports:
         - containerPort: 8080
           name: server

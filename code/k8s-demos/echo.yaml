@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      pod: echo
+  template:
+    metadata:
+      labels:
+        pod: echo
+    spec:
+      containers:
+      - name: echo
+        image: jmalloc/echo-server:latest
+        ports:
+        - containerPort: 8080

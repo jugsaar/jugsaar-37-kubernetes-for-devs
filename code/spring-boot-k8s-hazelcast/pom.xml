@@ -28,7 +28,7 @@
 
         <!-- customize default deployment manifest options -->
         <fabric8.generator.spring-boot.alias>spring-boot-hazelcast-demo</fabric8.generator.spring-boot.alias>
-        <fabric8.generator.spring-boot.registry>gitlab:5000</fabric8.generator.spring-boot.registry>
+        <fabric8.generator.spring-boot.registry>k8smaster:5000</fabric8.generator.spring-boot.registry>
         <fabric8.generator.spring-boot.name>%g/%a:%l</fabric8.generator.spring-boot.name>
     </properties>
 
